@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home /> should display a loading message when the data is loading 1`] = `
+<View>
+  <Text>
+    Loading
+  </Text>
+</View>
+`;
+
+exports[`<Home /> should display an error message if an error is returned 1`] = `
+<Text>
+  Error Fetching data
+</Text>
+`;
+
+exports[`<Home /> should render the products correctly 1`] = `
+<Text>
+  Error Fetching data
+</Text>
+`;
