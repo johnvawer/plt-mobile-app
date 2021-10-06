@@ -64,7 +64,7 @@ describe('<Home />', () => {
       data: {
         data: [fakeProduct]
       },
-      error: true
+      error: false
     })
     const { toJSON } = render(<Home navigation={{ navigate: jest.fn() }} />)
 

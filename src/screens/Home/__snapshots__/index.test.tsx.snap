@@ -15,7 +15,117 @@ exports[`<Home /> should display an error message if an error is returned 1`] = 
 `;
 
 exports[`<Home /> should render the products correctly 1`] = `
-<Text>
-  Error Fetching data
-</Text>
+<RCTScrollView
+  data={
+    Array [
+      Object {
+        "colour": "black",
+        "id": 1,
+        "img": "http://someimage.png",
+        "name": "product name",
+        "price": 10,
+      },
+    ]
+  }
+  getItem={[Function]}
+  getItemCount={[Function]}
+  keyExtractor={[Function]}
+  onContentSizeChange={[Function]}
+  onLayout={[Function]}
+  onMomentumScrollBegin={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  removeClippedSubviews={false}
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  stickyHeaderIndices={Array []}
+  viewabilityConfigCallbackPairs={Array []}
+>
+  <View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        nativeID="animatedComponent"
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "margin": 10,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://someimage.png",
+              }
+            }
+            style={
+              Object {
+                "height": 300,
+                "marginBottom": 10,
+                "width": 300,
+              }
+            }
+          />
+          <Text>
+            product name
+          </Text>
+          <Text>
+            £
+            10.00
+          </Text>
+          <View
+            accessible={true}
+            collapsable={false}
+            focusable={true}
+            onBlur={[Function]}
+            onClick={[Function]}
+            onFocus={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "white",
+                "borderColor": "black",
+                "borderWidth": 1,
+                "margin": 5,
+                "padding": 10,
+              }
+            }
+          >
+            <Text>
+              View Product
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
 `;
