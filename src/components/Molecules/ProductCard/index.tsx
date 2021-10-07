@@ -4,7 +4,8 @@ import {
   TouchableOpacity,
   Text,
   Image,
-  StyleSheet
+  StyleSheet,
+  useWindowDimensions
 } from 'react-native'
 import Button from '../../Atoms/Button'
 import ProductPrice from '../../Atoms/ProductPrice'
@@ -16,13 +17,22 @@ interface Props {
 }
 
 const ProductCard = ({ product, onPress, buttonText }: Props): JSX.Element => {
+  const { width } = useWindowDimensions()
   const { name, price, img, id } = product
   const secureImage = img.split('http://').join('https://')
 
   return (
     <TouchableOpacity onPress={onPress} key={id}>
       <View style={styles.container}>
-        <Image testID='productCardImage' source={{ uri: secureImage }} style={styles.image} />
+        <Image
+          testID='productCardImage'
+          resizeMode='contain'
+          source={{ uri: secureImage }}
+          style={[styles.image, {
+            width: width - 20,
+            height: width * 1.25
+          }]}
+        />
         <Text>{name}</Text>
         <ProductPrice amount={price} />
         <Button onPress={onPress} buttonText={buttonText} />
@@ -37,8 +47,6 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   image: {
-    height: 300,
-    width: 300,
     marginBottom: 10
   }
 })

@@ -75,17 +75,22 @@ exports[`<Home /> should render the products correctly 1`] = `
           }
         >
           <Image
+            resizeMode="contain"
             source={
               Object {
                 "uri": "https://someimage.png",
               }
             }
             style={
-              Object {
-                "height": 300,
-                "marginBottom": 10,
-                "width": 300,
-              }
+              Array [
+                Object {
+                  "marginBottom": 10,
+                },
+                Object {
+                  "height": 937.5,
+                  "width": 730,
+                },
+              ]
             }
             testID="productCardImage"
           />
