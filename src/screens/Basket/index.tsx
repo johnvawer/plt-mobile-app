@@ -6,20 +6,22 @@ import { Types } from '../../state/reducer'
 import ProductQuantity from '../../components/Molecules/ProductQuantity'
 import ProductPrice from '../../components/Atoms/ProductPrice'
 
+interface BasketTotals {
+  totalAmount: number
+  totalItems: number
+}
+
 const Basket = (): JSX.Element => {
   const { state, dispatch } = useContext(AppContext)
   const { products } = state
-  const [basketTotals, setBasketTotals] = useState<{
-    totalAmount: number
-    totalItems: number
-  }>({
+  const [basketTotals, setBasketTotals] = useState<BasketTotals>({
     totalAmount: 0,
     totalItems: 0
   })
 
   useEffect(() => {
     if (products != null && (products.length > 0)) {
-      const currentBasket = products.reduce((totals, product): any => {
+      const currentBasket = products.reduce((totals: BasketTotals, product: ComputedProduct) => {
         totals.totalAmount = totals.totalAmount += product.totalPrice
         totals.totalItems = totals.totalItems += product.quantity
         return totals
@@ -40,7 +42,7 @@ const Basket = (): JSX.Element => {
     )
   }
 
-  const onPressMore = (product: Product): void => {
+  const onPressMore = (product: ComputedProduct): void => {
     const { id, name, price } = product
 
     dispatch({
@@ -67,7 +69,7 @@ const Basket = (): JSX.Element => {
       <View style={{ flex: 0.75 }}>
         <FlatList
           data={products}
-          renderItem={({ item }: any) => {
+          renderItem={({ item }: { item: ComputedProduct }) => {
             return (
               <View style={styles.productRow}>
                 <View>
@@ -88,8 +90,8 @@ const Basket = (): JSX.Element => {
         />
       </View>
       <View style={{ flex: 0.25 }}>
-        <Text>Total Items: {basketTotals.totalItems}</Text>
-        <Text>Total Amount: <ProductPrice amount={basketTotals.totalAmount} /></Text>
+        <Text testID='totalItems'>Total Items: {basketTotals.totalItems}</Text>
+        <Text>Total Amount: <ProductPrice testID='totalAmount' amount={basketTotals.totalAmount} /></Text>
       </View>
     </>
   )

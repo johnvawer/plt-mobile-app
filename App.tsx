@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { createNativeStackNavigator, NativeStackNavigationOptions } from '@react-navigation/native-stack'
+import { HomeStackParamsList } from './src/types/routes'
+
 import Home from './src/screens/Home'
 import Product from './src/screens/Product'
 import Basket from './src/screens/Basket'

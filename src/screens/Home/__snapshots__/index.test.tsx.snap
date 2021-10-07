@@ -91,7 +91,9 @@ exports[`<Home /> should render the products correctly 1`] = `
           <Text>
             product name
           </Text>
-          <Text>
+          <Text
+            testID=""
+          >
             £
             10.00
           </Text>

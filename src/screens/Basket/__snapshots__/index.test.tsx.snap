@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Basket /> should render correctly 1`] = `
+exports[`<Basket /> should display an empty message if there are no products in the basket 1`] = `
 <View>
   <Text>
     Your basket is empty

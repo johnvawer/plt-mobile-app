@@ -1,7 +1,6 @@
-import React, { createContext, useReducer, Dispatch } from 'react'
+import { createContext, Dispatch } from 'react'
 import { productReducer, ProductActions } from './reducer'
-
-interface Product {
+interface ComputedProduct {
   id: number
   name: string
   price: number
@@ -10,14 +9,14 @@ interface Product {
 }
 
 interface InitialState {
-  products: Product[]
+  products: ComputedProduct[]
 }
 
-const initialState = {
+export const initialState = {
   products: []
 }
 
-const AppContext = createContext<{
+export const AppContext = createContext<{
   state: InitialState
   dispatch: Dispatch<ProductActions>
 }>({
@@ -25,18 +24,6 @@ const AppContext = createContext<{
   dispatch: () => null
 })
 
-const mainReducer = ({ products }: InitialState, action: ProductActions): { products: Product[] } => ({
+export const mainReducer = ({ products }: InitialState, action: ProductActions): { products: ComputedProduct[] } => ({
   products: productReducer(products, action)
 })
-
-const AppProvider: React.FC = ({ children }) => {
-  const [state, dispatch] = useReducer(mainReducer, initialState)
-
-  return (
-    <AppContext.Provider value={{ state, dispatch }}>
-      {children}
-    </AppContext.Provider>
-  )
-}
-
-export { AppProvider, AppContext }
