@@ -22,7 +22,7 @@ const ProductCard = ({ product, onPress, buttonText }: Props): JSX.Element => {
   return (
     <TouchableOpacity onPress={onPress} key={id}>
       <View style={styles.container}>
-        <Image source={{ uri: secureImage }} style={styles.image} />
+        <Image testID='productCardImage' source={{ uri: secureImage }} style={styles.image} />
         <Text>{name}</Text>
         <ProductPrice amount={price} />
         <Button onPress={onPress} buttonText={buttonText} />
